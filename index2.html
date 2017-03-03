@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Start page</title>
+<style type="text/css">
+    a {align-content: center;}
+    .header {background-color: #008CCA;width:900px; height:50px;margin-top: 10px}
+    .raw {margin: 10px;clear:both}
+    .links {vertical-align: middle;}
+    .search {float:left;margin:3px}
+    .spotify {float:left}
+    #time {float:left;margin:5px}
+    #calendar {float: left}
+    #main {font-family: sans-serif;font-size: 14;color:black}
+</style>
+    <script type="text/javascript">
+
+function updateTime() {
+	var date = new Date();
+	var stunden = date.getHours();
+	var minuten = date.getMinutes();
+	var tag = date.getDate();
+	var monatDesJahres = date.getMonth();
+	var jahr = date.getFullYear();
+	var tagInWoche = date.getDay();
+	var wochentag = new Array("Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag");
+	var monat = new Array("Januar", "Februar", "M&auml;rz", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember");
+
+	var datum = wochentag[tagInWoche] + ", " + tag + ". " + monat[monatDesJahres] + " " + jahr + " " + stunden + ":" + minuten;
+
+	document.getElementById('time').innerHTML = datum;
+	setTimeout(updateTime, 60000);
+}
+
+window.addEventListener("load", updateTime);
+
+
+
+
+</script>
+</head>
+<body>
+ <div id="main">
+     
+    <div class="header" >
+        <div class="logo"><a href="http://www.superreal.de"><img align="right" height="50"src="logo.png"></a></div>
+        <div class="links"><a href="https://mail.google.com/mail/u/0/#inbox"><img height="30" src="Mail.png"></a>
+        <a href="https://beexcellent.jira.com/login"><img height="30" src="300px-JIRA_logo.svg.png"></a>
+        <a href="https://redmine.sr-system.de/"><img height="30" src="redmine.png"></a>
+        <a href="https://trello.com/b/RzSqpOQB"><img height="30" src="web-trello-icon.png"></a></div>
+    </div>
+
+     
+     <div class="raw">
+         <div id="time">
+	   </div>
+       <!-- Search Google -->
+<div class="search"><center>
+<FORM method=GET action="http://www.google.com/search">
+<input type=hidden name=ie value=UTF-8>
+<input type=hidden name=oe value=UTF-8>
+<TABLE bgcolor="#FFFFFF"><tr><td>
+
+<INPUT TYPE=text name=q size=25 maxlength=255 value="">
+<INPUT type=submit name=btnG VALUE="Google Search">
+</td></tr></TABLE>
+</FORM>
+    </center><!-- Search Google --></div>
+         </div>
+
+    <div id="calendar"><iframe src="https://calendar.google.com/calendar/embed?title=Calendario&amp;mode=AGENDA&amp;height=450&amp;wkst=1&amp;bgcolor=%23008CCA&amp;src=s.tolari%40superreal.de&amp;color=%231B887A&amp;ctz=Europe%2FBerlin" style="border:solid 1px #777" width="600" height="450" frameborder="0" scrolling="no"></iframe></div>
+   
+        <iframe class="spotify" src="https://embed.spotify.com/?uri=spotify%3Aalbum%3A1NF8WUbdC632SIwixiWrLh" width="300" height="100" frameborder="0" allowtransparency="true"></iframe>
+        <iframe class="spotify" src="https://embed.spotify.com/?uri=spotify%3Auser%3Aortruna%3Aplaylist%3A1d3DEmyeP9SvdgCp3PjpLc" width="300" height="100" frameborder="0" allowtransparency="true"></iframe>
+    
+   
+</div>
+</body>
+</html>
